@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>
+	Kanoon Farhangi Amoozesh, Ghalamchi English Website
+</title>
+     <script async="" src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/analytics.js"></script><script src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/jquery.js"></script>
+    <link href="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/animate.css" rel="stylesheet"><meta name="keywords" content="Ghalamchi,kanoon,WoW contest,free,English,vocabulary,test,game"><link rel="icon" href="http://en.kanoon.ir/Images/home/favicon.png"><meta name="description" content="Play free English vocabulary game series named WoW Contest and enjoy learning! Learn about Ghalamchi foundation services and more...">
+    <style>
+        	.booklet         {width:800px; height:600px; position:relative; margin:0 auto 10px; overflow:visible !important;}
+	.booklet .b-page {left:0; top:0; position:absolute; overflow:hidden; padding:0; outline:1px solid rgba(0,0,0,0);}
+	
+	.booklet .b-pN  {}
+	.booklet .b-p0  {}
+	.booklet .b-p1  {}
+	.booklet .b-p2  {}    
+	.booklet .b-p3  {}
+	.booklet .b-p4  {}
+	   
+   	/* Page Wrappers */
+	.booklet .b-wrap       {top:0; position:absolute;}
+	.booklet .b-wrap-left  {background:#fff;}
+	.booklet .b-wrap-right {background:#fff;}
+	
+	.booklet .b-pN .b-wrap,
+	.booklet .b-p1 .b-wrap,
+	.booklet .b-p2 .b-wrap,
+	.booklet .b-p3 .b-wrap,
+	.booklet .b-p4 .b-wrap  {left:0;}
+	.booklet .b-p0 .b-wrap  {right:0;}
+	
+   	/* Custom Page Types */
+	.booklet .b-page-blank  {padding:0; width:100%; height:100%;}
+	.booklet .b-page-cover  {padding:0; width:100%; height:100%; background:#fff;}
+	.booklet .b-page-cover h3  {color:#fff; text-shadow:0 1px 3px #222;}
+   
+   	/* Page Numbers */
+	.booklet .b-counter {bottom:10px; position:absolute; display:block; width:25px; height:20px; background:#ccc; color:#444; text-align:center; font-family:Georgia, "Times New Roman", Times, serif; font-size:10px; padding:5px 0 0;}
+	.booklet .b-wrap-left  .b-counter  {left:10px;}
+	.booklet .b-wrap-right .b-counter {right:10px;}
+   
+   	/* Page Shadows */
+	.booklet .b-shadow-f  {right:0; top:0; position:absolute; opacity:0; background-image:url("images/shadow-top-forward.png"); background-repeat:repeat-y; background-position:100% 0;}
+	.booklet .b-shadow-b  {left:0;  top:0; position:absolute; opacity:0; background-image:url("images/shadow-top-back.png");    background-repeat:repeat-y; background-position:0 0;}
+	
+	.booklet .b-p0 {background-image:url("images/shadow.png"); background-repeat:repeat-y; background-position:100% 10px;}
+	.booklet .b-p3 {background-image:url("images/shadow.png"); background-repeat:repeat-y; background-position:0 10px;}
+	
+   	/* Overlay Controls */
+	.booklet .b-grab     {cursor: url("images/openhand.cur"), default;}
+	.booklet .b-grabbing {cursor: url("images/closedhand.cur"), default;}
+	
+   	/* Overlay Controls */
+	.booklet .b-overlay      {top:0; position:absolute; height:100%; width:50%;}
+	.booklet .b-overlay-prev {left:0;}
+	.booklet .b-overlay-next {right:0;}
+	
+   	/* Tab Controls */
+	.booklet .b-tab        {background:#000; height:40px; width:100%; padding:10px 0 0; text-align:center; color:#ccc; position:absolute; font-size:11px;}
+	.booklet .b-tab-prev   {left:0;}
+	.booklet .b-tab-next   {right:0;}
+	.booklet .b-tab:hover  {background:#aaa; color:#000;}	
+	
+   	/* Arrow Controls */
+	.booklet .b-arrow          {display:block; position:absolute; text-indent:-9999px; top:0; height:100%; width:74px;}
+	.booklet .b-arrow div      {display:none; text-indent:-9999px; height:170px; width:74px; position:absolute; left:0; top:25%;}
+	.booklet .b-arrow-next     {right:-80px;}
+	.booklet .b-arrow-prev     {left:-80px;}
+	.booklet .b-arrow-next div {background:url("images/arrow-next.png") no-repeat left top;}
+	.booklet .b-arrow-prev div {background:url("images/arrow-prev.png") no-repeat left top;}
+		
+
+    body              {z-index:0;}
+    .b-menu           {z-index:100;}
+    .b-selector       {z-index:100;}
+    .booklet          {z-index:10;}
+    .b-pN             {z-index:10;}
+    .b-p0             {z-index:30;}
+    .b-p1             {z-index:20;}
+    .b-p2             {z-index:20;}
+    .b-p3             {z-index:30;}
+    .b-p4             {z-index:10;}
+    .b-prev           {z-index:40;}
+    .b-next           {z-index:40;}
+    .b-counter        {z-index:40;}
+	
+	.b-menu {height:40px; padding:0 0 10px;}
+	
+	.b-selector             {height:40px; position:relative; float:right; border:none; color:#cecece; cursor:pointer; font:normal 12px "Myriad Pro", Myriad, "DejaVu Sans Condensed","Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;}
+	.b-selector .b-current  {padding:8px 15px 12px; line-height:20px; min-width:18px; height:20px; display:block; background:#000; text-align:center;}
+	.b-selector-page        {width:auto; margin-left:15px;}
+	.b-selector-chapter     {width:auto;}
+	
+	.b-selector:hover            {color:#fff; background-position:left 0;}
+	.b-selector:hover .b-current {background-position:right 0;}
+	.b-selector ul               {overflow:hidden; margin:0; list-style:none !important; position:absolute; top:40px; right:0; padding:0 0 10px; background:#000; width:240px;}
+	.b-selector li               {border:none;}
+	.b-selector a                {color:#cecece; height:14px; text-decoration:none; display:block; padding:5px 10px;}
+	.b-selector a .b-text        {float:left; clear:none;}
+	.b-selector a .b-num         {float:right; clear:none;}
+	.b-selector a:hover          {color:#fff;}
+        body { margin:0;
+               font-family:"Segoe UI",Sans-Serif,Tahoma !important;
+               min-width:550px;
+               
+        }
+        .head-box{
+            display:block;
+            position:relative;
+        }
+        .head-image{
+             width:100%;  
+              background-size: contain;
+        background-repeat: no-repeat;
+        }
+        .head-image a{
+            color:black;
+        }
+        .head-image a:visited{
+            color:black;
+            text-decoration:none;
+        }
+        .z-image {
+	        -webkit-transform: scale(1);
+	        transform: scale(1);
+	        -webkit-transition: .3s ease-in-out;
+	        transition: .3s ease-in-out;
+        }
+        .z-image:hover {
+	        -webkit-transform: scale(1.3);
+	        transform: scale(1.3);
+        }
+        .head-bar,.foot-bar{
+            width:100%;
+            height:50px;
+            background-color:dodgerblue;
+            display:block;
+        }
+        
+        #main-back{
+            
+            
+            width:100%;
+            z-index:0;
+        }
+        #icons-region{
+            position:absolute;
+            max-width:1100px;
+            width:80%;
+            margin-left:auto;
+            margin-right:auto;
+            padding:10px;
+            top:50px;
+            left:0;
+            right:0;
+            font-size:1vw;
+            font-weight:bold;
+        }
+        #icons-region img{
+            width:13%;
+        }
+        #bonyad{
+            float:right;
+        }
+        #kanoon{
+            float:left;
+            width:7% !important;
+        }
+
+        #wow{
+            float:right;
+            margin-right:-18%;
+            margin-top:39%;
+        }
+        #wow-text{
+            float:right;
+            margin-right:-18%;
+            margin-top:45%;
+            font-size:0.8vw;
+        }
+        #trans{
+            width:7% !important;
+            float:left;
+            margin-left:0%;
+            margin-top:24%;
+        }
+        #bonyad-text{
+            float:right;
+            margin-right:-17%;
+            margin-top:12%;
+        }
+        #kanoon-text{
+            float:left;
+            margin-left:-10%;
+            margin-top:0%;
+        }
+        #center-cap{
+            text-align:center;
+            float:right;
+            margin-top:15%;
+            width:65.5%;
+            margin-right:-1%;
+
+        }
+        #top-cap{
+            font-weight:bolder;
+            font-size:2.5vw;
+            margin-bottom:-10px;
+            text-align:center;
+        }
+        hr {
+            border: 0;
+            height: 2px;
+            margin: 18px 0;
+            position: relative;
+            background: -moz-linear-gradient(left, rgba(255,0,0,0) 0%, rgba(255,0,0,0) 15%, rgba(255,0,0,0.65) 50%, rgba(255,0,0,0) 85%, rgba(255,0,0,0) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,0,0,0)), color-stop(15%,rgba(255,0,0,0)), color-stop(50%,rgba(255,0,0,0.65)), color-stop(85%,rgba(255,0,0,0)), color-stop(100%,rgba(255,0,0,0))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left, rgba(255,0,0,0) 0%,rgba(255,0,0,0) 15%,rgba(255,0,0,0.65) 50%,rgba(255,0,0,0) 85%,rgba(255,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left, rgba(255,0,0,0) 0%,rgba(255,0,0,0) 15%,rgba(255,0,0,0.65) 50%,rgba(255,0,0,0) 85%,rgba(255,0,0,0) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left, rgba(255,0,0,0) 0%,rgba(255,0,0,0) 15%,rgba(255,0,0,0.65) 50%,rgba(255,0,0,0) 85%,rgba(255,0,0,0) 100%); /* IE10+ */
+            background: linear-gradient(left, rgba(255,0,0,0) 0%,rgba(255,0,0,0) 15%,rgba(255,0,0,0.65) 50%,rgba(255,0,0,0) 85%,rgba(255,0,0,0) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ff0000', endColorstr='#00ff0000',GradientType=1 ); /* IE6-9 */
+        }
+
+        hr:before {
+            content: "";
+            display: block;
+            border-top: solid 1px rgba(255,100,100,0.100);
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+        }
+        #info-box{
+            position:relative;
+            background-color: #ebebe0;
+            padding-top:25px;
+            padding-bottom:30px;
+            margin-top:-5px;
+        }
+        #desc-cap{
+            font-weight:bold;
+            text-align:center;
+            color: #A44E4F;
+            font-size:1.1vw;
+        }
+        #persian-desc-cap{
+            font-weight:bold;
+            text-align:center;
+            font-family: 'Samim',BKoodak,tahoma;
+            color: #A44E4F;
+            font-size:1.1vw;
+        }
+        #start-date{
+            text-align:center;
+        }
+        #num-of-years{
+            font-size:3vw;
+            color: #00b8e6;
+            font-weight:bolder;
+            font-style:italic;
+            padding-right:10px;
+        }
+        #year-label{
+            font-weight:bold;
+            font-size:2.4vw;
+            color:  #4d4d33;
+        }
+        #endow-detail{
+            font-size:0.8vw;
+            color:gray;
+            font-weight:bold;
+        }
+        #missions{
+            padding-top:20px;
+            padding-bottom:20px;
+        }
+        #mission-title{
+            font-size:2vw;
+            font-weight:bold;
+            color: #00b8e6;
+            width:40%;
+            margin:0 auto;
+            text-align:center;
+        }
+        #mission-line{
+            width:10%;
+
+        }
+        .mission-row-text{
+            padding-left:5px;
+        }
+        .mission-row-img{
+            height:80px;
+            vertical-align:middle;
+        }
+        .mission-row{
+            font-size:11px;
+            font-weight:bold;
+            width:550px;
+            margin:0 auto;
+            color:gray;
+        }
+        #banners ,#gallery{
+            margin:0 auto;
+            max-width:900px;
+            padding-top:30px;
+            padding-bottom:30px;
+        }
+        #banners img{
+            width:100%;
+        }
+        #gallery{
+            text-align:center;
+        }
+        #gallery-title{
+            font-size:1.85vw;
+            font-weight:bold;
+            color: #00b8e6;
+            width:50%;
+            margin:0 auto;
+            text-align:center;
+        }
+        #gallery-desc{
+            font-size:1vw;
+            color: gray;
+            width:80%;
+            margin:0 auto;
+            text-align:center;
+            padding-bottom:20px;
+        }
+        .photo-box{
+            width:250px;
+            height:200px;
+            display:inline-block;
+            margin:7px 5px;
+            text-align:center;
+            vertical-align:middle;
+            border:1px solid white;
+            font-weight:bold;
+            font-size:20px;
+        }
+        .photo-box:hover{
+            border:1px solid black;
+        }
+        #gallery-region a{
+            color:white;
+            text-decoration:none;
+        }
+        #photo4{
+            background: linear-gradient(rgba(102,255,51,.5), rgba(102,255,51,.5)),
+            url('../Images/Intro/sara.png');
+        }
+         #photo5{
+            background: linear-gradient(rgba(0,255,204,.7), rgba(0,255,204,.7)),
+            url('../Images/Intro/alumni.jpg');
+        }
+        #photo1{
+            background: linear-gradient(rgba(255,102,255,.7), rgba(255,102,255,.7)),
+            url('../Images/Intro/wows.png');
+        }
+        #photo3{
+            background: linear-gradient(rgba(255,255,0,.7), rgba(255,255,0,.7)),
+            url('../Images/Intro/trans.JPG');
+        }
+        #photo6{
+            background: linear-gradient(rgba(255,102,255,.5), rgba(255,102,255,.5)),
+            url('../Images/Intro/fest.png');
+        }
+        #photo2{
+            background: linear-gradient(rgba(153, 221, 255,0.5), rgba(153, 221, 255,.5)),
+            url('../Images/home/web-surfing-2.png');
+        }
+        #foot-content{
+            width:989px;
+            margin:0 auto;
+            color:white;
+            padding-top:1px;
+        }
+        li{
+            list-style:none;
+            height:40px;
+            line-height:40px;
+            vertical-align:middle;
+            padding-left:10px;
+            padding-right:10px;
+        }
+        .nav{
+            cursor:pointer;
+        }
+        #menu-img{
+            margin:3px 0 0 5px;
+        }
+        .left-menu{
+            position:absolute;
+            left:0;
+            background-color:dodgerblue;
+            color:white;
+            font-weight:bold;
+            z-index:100;
+            margin-top:10px;
+            padding:10px;
+            top:33px;
+        }
+        .left-menu a{
+            color:white;
+            text-decoration:none;
+        }
+        .left-menu a li:hover{
+            background-color:cornflowerblue;
+        }
+        #page-title{
+            font-size:15px;
+            color:white;
+            font-weight:bold;
+            float:left;
+        }
+        #page-subtitle{
+
+        }
+        .photobox-main-text{
+            text-shadow: 5px 3px 11px rgba(0, 0, 0, 1);
+            border-bottom:3px solid white;
+            padding-bottom:5px;
+        }
+        .photobox-details{
+            color:white;
+            text-shadow: 5px 2px 11px rgba(0, 0, 0, 1);
+            font-size:13px;
+            margin-top:10px;
+            display:inline-block;
+        }
+        .inner-photobox{
+              position: relative;
+              top: 35%;
+              -webkit-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+        }
+        .topnav {
+              overflow: hidden;
+              max-width:989px;
+              margin:0 auto;
+              background-color: dodgerblue;
+              font-weight:bold;
+              
+            }
+        #top-cap{
+            text-transform:uppercase;
+            font-weight:bold;
+
+        }
+            .topnav a {
+              float: left;
+              display: block;
+              color: #f2f2f2;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+              font-size:15px;
+            }
+
+            .topnav a:hover {
+              background-color: #ddd;
+              color: black;
+            }
+
+            .topnav .icon {
+              display: none;
+            }
+
+        @keyframes blink {
+           0% {
+                -webkit-transform: scale(1);
+	            transform: scale(1);
+            }
+            100% {
+                -webkit-transform: scale(1.5);
+	            transform: scale(1.5);
+            }
+
+        }
+        .blinking {
+            -webkit-transition: .3s ease-in;
+	        transition: .3s ease-in;
+            animation: blink 1s;
+            animation-iteration-count: infinite;
+        }
+        #mytopnav a{
+            font-size:1.3vw !important;
+        }
+        #mybook img{
+            width:450px !important;
+            height:630px;
+        }
+        #close-modal-button{
+            text-align:center;
+            margin:auto;
+            color:white;
+            cursor:pointer;
+            padding:5px 0 5px 0;
+        }
+        .modal-content{
+            display:none;
+        }
+    </style>
+   
+</head>
+<body>
+    <form method="post" action="./" id="form1">
+<div class="aspNetHidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE2MTA0OTM1ODhkZJMQVPOi1iSoUMnWfyCIbSYgfdKoyiTcAKX9Gqh0brmf" type="hidden">
+</div>
+
+<div class="aspNetHidden">
+
+	<input name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6E43DA81" type="hidden">
+</div>
+     <div class="head-bar">
+          <div class="topnav" id="mytopnav">
+        <a href="http://wow.kanoon.ir/">WoW Contest</a>
+        <a id="demo01" href="#animatedModal">Ghalamchi Foundation</a>
+        <a href="http://en.kanoon.ir/Page?id=70">About Us</a>
+        <a href="http://wow.kanoon.ir/ContactUs">Contact Us</a>
+              <a href="http://www.kanoon.ir/">فارسی</a>
+</div>
+         </div>
+            <div class="head-image">
+                 <img id="main-back" src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/introBg2.jfif">
+                 <div id="icons-region">
+                    
+                         <a id="demo02" href="#animatedModal"><img id="bonyad" class="z-image" src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/bonyad1.png" alt="bonyad">
+                         <p id="bonyad-text">Ghalamchi Educational Foundation</p></a>
+            
+                       <div id="animatedModal" class="animated animatedModal-off" style="background-color: rgb(57, 190, 185); position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; overflow-y: auto; z-index: -9999; opacity: 0; animation-duration: 0.6s;">
+       <div class="close-animatedModal" id="close-modal-button"> 
+            Close
+        </div>
+            
+        <div class="modal-content">
+            
+                    <div id="mybook" class="booklet" style="height: 630px; margin-top: 0px; width: 450px;"><div class="b-page b-page-0 b-p1" style="width: 450px; height: 630px; left: -450px;"><div class="b-wrap" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div class="b-page-empty" title="Beginning" rel="Beginning of Book"></div></div></div>
+                        <div class="b-page b-page-1 b-p2" style="width: 450px; opacity: 1; height: 630px; left: 0px;"><div class="b-wrap b-page-cover" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive" src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/0.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-2 b-p3" style="width: 0px; height: 630px; padding-left: 0px; left: 450px;"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/1.jfif">
+                        </div></div><div class="b-shadow-f" style="right: 0px; width: 450px; height: 630px;"></div></div>
+                        <div class="b-page b-page-3 b-p4" style="width: 450px; height: 630px; left: 0px;"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/2.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-4"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/3.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-5"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/4.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-6"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/5.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-7"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/6.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-8"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/7.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-9"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/8.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-10"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/9.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-11"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/10.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-12"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/11.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-13"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/12.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-14"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/13.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-15"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/14.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-16"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/15.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-17"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/16.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-18"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/17.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-19"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/18.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-20"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/19.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-21"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/20.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-22"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/21.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-23"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/22.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-24"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/23.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-25"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/24.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-26"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/25.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-27"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/26.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-28"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/27.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-29"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/28.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-30"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/29.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-31"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/30.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-32"><div class="b-wrap b-wrap-left" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/31.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-33"><div class="b-wrap b-wrap-right" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/32.jfif">
+                        </div></div></div>
+                        <div class="b-page b-page-34"><div class="b-wrap b-page-cover" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div style="border:1px solid #808080" title="End" rel="End of Book">
+                            <img class="img-responsive " src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/1.jfif">
+                        </div></div></div>
+                    <div class="b-page b-page-35"><div class="b-wrap" style="left: 0px; width: 450px; height: 630px; padding: 0px;"><div class="b-page-empty" title=""></div></div></div><div class="b-controls"><div class="b-overlay b-overlay-prev b-prev" title="Previous Page" style="width: 100%; cursor: default; display: none;"></div><div class="b-overlay b-overlay-next b-next" title="Next Page" style="width: 100%; cursor: pointer;"></div></div></div>
+        </div>
+    </div>
+                     <a href="http://wow.kanoon.ir/"><img id="wow" class="z-image blinking" src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/wow.png" alt="WoW">
+                     <p id="wow-text">World of Words Contest</p></a>
+                     <div id="center-cap">
+                         <p id="top-cap">
+                             Aspiring For A Day When No Hardworking 
+Student Is Deprived of Progress Due To Lack Of Resources Or Financial 
+Obstacles
+                         </p>
+                         <hr>
+                         <p id="persian-desc-cap">
+                             به امید آن که هیچ دانش آموز سخت کوشی به دلیل مشکل مالی از درس خواندن و پیشرفت باز نماند
+                         </p>
+                         <p id="desc-cap">
+                             We are a nationwide educational foundation working to promote equal access to education 
+                         </p>
+                         
+                     </div>
+                      <a href="http://kanoon.ir/"><img id="kanoon" class="z-image" src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/kanoon.png" alt="kanoon">
+                     <p id="kanoon-text">Kanoon Farhangi Amoozesh (Ghalamchi)</p></a>
+                      <a href="http://www.kanoon.ir/Public/Translations.aspx"><img id="trans" class="z-image" src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/trans.png" alt="translation"></a>
+            </div>
+    </div>
+    
+        <div id="info-box">
+        <div id="start-date">
+            <span id="num-of-years">13</span>
+            <span id="year-label">Brilliant Years of Endowment</span>
+            <div id="endow-detail">
+                On September the 6th 2005 Ghalamchi Educational Foundation started in Iran
+            </div>
+        </div>
+        </div>
+        <div id="missions">
+            <div id="mission-title">
+                Mission
+            </div>
+            
+            <div class="mission-row">
+                
+                <img class="mission-row-img" src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/gradu.jfif" alt=""><span class="mission-row-text">Providing equal educational services to students from all social backgrounds</span>
+                 
+            </div>
+           
+        </div>
+        <div id="banners">
+            <div class="banner-row">
+                <a href="http://en.kanoon.ir/Page.aspx?id=70"><img src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/kanoon-info.png" alt="kanoon-info"></a>
+            </div>
+            <div class="banner-row">
+                <a href="http://en.kanoon.ir/Page.aspx?id=4"><img src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/bonyad-info.png" alt="bonyad-info"></a>
+            </div>
+            <div class="banner-row">
+                <a href="http://wow.kanoon.ir/"><img src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/wow-info.png" alt="wow-info"></a>
+            </div>
+        </div>
+        <div id="gallery">
+            <div id="gallery-title">
+                KANOON FARHANGI AMOOZESH
+            </div>
+            <div id="gallery-desc">
+                Educational English platforms for students to learn English as a mean to analytical and critical thinking
+            </div>
+            <div id="gallery-region">
+                <a href="http://wow.kanoon.ir/">
+                <span class="photo-box" id="photo1">
+                   <span class="inner-photobox">
+                    <span class="photobox-main-text">
+                        WoW Contest!
+                    </span> 
+                    <span class="photobox-details">
+                        Learn +7000 words
+                    </span>
+                    </span>
+                </span></a> 
+                <a href="http://en.kanoon.ir/Posts.aspx">
+                <span class="photo-box" id="photo2">
+                    
+                     <span class="inner-photobox">
+                    <span class="photobox-main-text">
+                        Web Surfing with Us
+                    </span> 
+                    <span class="photobox-details">
+                        Read ground breaking news in education around the world
+                    </span>
+                    </span>
+                </span>
+                </a>
+                <a href="http://www.kanoon.ir/Public/Translations.aspx">
+                <span class="photo-box" id="photo3">
+                    <span class="inner-photobox">
+                    <span class="photobox-main-text">
+                        Ghalamchi Translators
+                    </span> 
+                    <span class="photobox-details">
+                        Latest news in education<br> and psychology in Farsi
+                    </span>
+                    </span>
+                </span></a>
+                <a href="http://sarayedanesh.sch.ir/">
+                <span class="photo-box" id="photo4">
+                     <span class="inner-photobox">
+                    <span class="photobox-main-text">
+                        Saraye-Danesh Schools
+                    </span> 
+                    <span class="photobox-details">
+                        Seasonal festivasls and English workshops
+                    </span>
+                    </span>
+                </span></a>
+                <a href="https://t.me/SarayeDaneshAlumni">
+                <span class="photo-box" id="photo5">
+                    <span class="inner-photobox">
+                    <span class="photobox-main-text">
+                        Student Alumni
+                    </span> 
+                    <span class="photobox-details">
+                        Saraye-Danesh Schools' student activities in Telegram
+                    </span>
+                    </span>
+                </span></a>
+                <a href="http://en.kanoon.ir/VideoClips.aspx?id=7">
+                <span class="photo-box" id="photo6">
+                    <span class="inner-photobox">
+                    <span class="photobox-main-text">
+                        Summer English Festival
+                    </span> 
+                    <span class="photobox-details">
+                        See the first English festival
+                    </span>
+                    </span>
+                </span>
+                    </a>
+            </div>
+        </div>
+        <div class="foot-bar">
+            <div id="foot-content">
+                 <p>Kanoon Farhangi Amoozesh 2018 © All rights resereved.</p>
+            </div>
+           
+        </div>
+        
+    </form>
+    <script src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/animatedModal.js"></script>
+    <script src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/jquery-ui-1.js"></script>
+    <script src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/jquery_002.js"></script>
+    <script src="Kanoon%20Farhangi%20Amoozesh,%20Ghalamchi%20English%20Website_files/jquery_003.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-16951678-5', 'kanoon.ir');
+        ga('send', 'pageview');
+        //popup 
+
+        $("#demo02").animatedModal();
+        $("#demo01").animatedModal();
+        // bonyad popup
+        $("#demo02").click(function () {
+            $(".modal-content").show();
+        });
+        $("#demo01").click(function () {
+            $(".modal-content").show();
+        });
+
+        $(function () {
+            $('#mybook').booklet({
+                closed: true,
+                autoCenter: true,
+                covers: true,
+                manual: false,
+                overlays: true,
+                hovers: true,
+                width: 900,
+                height: 630,
+                pagePadding: 0,
+                pageNumbers: false,
+
+            });
+        });
+  </script>
+
+
+</body></html>
