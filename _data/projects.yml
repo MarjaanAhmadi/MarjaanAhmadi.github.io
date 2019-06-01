@@ -2,20 +2,47 @@
 # uncomment the urls if you wish to display them, and add your own URL
 
 # donutfinder.io
+
+
+- project: WoW Mobile Application at Kanoon Farhangi Amoozesh Qalamchi
+  role: React-Native Developer
+  duration: Jan 2019 &mdash; Present
+  url: "http://www.kanoon.ir/Common/Handler/ArticleDownload.ashx?id=234385&aid=33067"
+  description: An free application for teaching English language to students in different grades and helping them to improve their writing skills.
+  Used_Technologies: React Native, Redux
+
+  - project: WoW website at Kanoon Farhangi Amoozesh Qalamchi
+  role: FullStack Developer
+  duration: Nov 2018 &mdash; Present
+  url: "htt[p://wow.kanoon.ir"
+  description: WoW is a result of several years, trying to empower students to keep learning words and to use them in their own stories. This game is built upon this belief that everyone is an author, if she or he starts experiencing the joy of thinking and writing.
+  Used_Technologies: Php Laravel, Vue Js, Asp.net MVC
+
+- project: Malkyno
+  role: FullStack Developer
+  duration: Sep 2017 &mdash; Jan 2018
+  url: ""
+  description: Real Estate Sales website 
+  Used_Technologies: Php Laravel, Vue Js
+  
 - project: Cavack
-  role: FullStack Dev
-  duration: 2017 &mdash; Present
+  role: FullStack Developer
+  duration: Feb 2017 &mdash; Jan 2018
   url: "https://Cavack.com"
   description: Online BookShop
+  Used_Technologies: Asp.net MVC, JQuery
 
 #Springfield Donut Eater's User Group
 - project: CavackBot
-  role: Programmer
-  duration: 2017 &mdash; Present
+  role: Developer
+  duration: Feb 2017 &mdash; Jan 2018
   url: "@Cavack_bot"
-  description: BookBot
+  description: Cavack Bot for helping find books
+  Used_Technologies: C#, Telegram Api
+
 - project: Parrot
-  role: FrontEnd Programmer
+  role: FullStack Developer
   duration: 2016 &mdash; 2017
   #url: ""
-  description: English Language Learning App
+  description: English Language Learning App,
+  Used_Technologies: Asp.net MVC, Ionic, Angular Js

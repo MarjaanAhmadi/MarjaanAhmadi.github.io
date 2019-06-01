@@ -1,7 +1,7 @@
 # Skills
 # Donut design
 - skill: FrontEnd
-  description: HTML,CSS,JavaScript,JQuery,Ajax,AngularJs,Bootstrap,MaterialDesign,VueJs
+  description: React_Native, React Js, Vue Js, Bootstrap, Jquery, Ajax, Java Script, Material Design, CSS, Bootstrap
 # Craft beer brewing
 - skill: BackEnd
-  description: Asp.net MVC5,Asp.net Core,EntityFramework
+  description: Asp.net MVC5, EntityFramework, Php Laravel

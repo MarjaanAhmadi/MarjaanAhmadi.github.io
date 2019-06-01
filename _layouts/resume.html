@@ -44,24 +44,28 @@
 
       </header>
 
-      {% if site.resume_section_experience %}
-      <!-- begin Experience -->
-      <section class="content-section">
 
+      
+      {% if site.resume_section_projects %}
+      <!-- begin Projects -->
+      <section class="content-section">
         <header class="section-header">
           <h2>Experience</h2>
         </header>
 
-        {% for job in site.data.experience %}
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">{{ job.company }}</h3>
-          <h4 class="resume-item-details" itemprop="description">{{ job.position }} &bull; {{ job.duration }}</h4>
-          <p class="resume-item-copy">{{ job.summary }}</p>
-        </div><!-- end of resume-item -->
+        {% for project in site.data.projects %}
+        <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
+          <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
+          <h3 class="resume-item-title" itemprop="name">{% if project.url %}<a href="{{ project.url }}" itemprop="url">{{ project.project }}</a>{% else %}{{ project.project }}{% endif %}</h3>
+          <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
+          <p class="resume-item-copy">{{ project.description }}</p>
+          <p class="resume-item-copy">{{ project.Used_Technologies }}</p>
+         
+        </div>
         {% endfor %}
 
       </section>
-      <!-- end Experience -->
+      <!-- end Projects -->
       {% endif %}
 
 
@@ -71,6 +75,8 @@
         <header class="section-header">
           <h2>Education</h2>
         </header>
+
+
 
         {% for education in site.data.education %}
         <div class="resume-item" itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
@@ -93,25 +99,6 @@
       {% endif %}
 
 
-      {% if site.resume_section_projects %}
-      <!-- begin Projects -->
-      <section class="content-section">
-        <header class="section-header">
-          <h2>Projects</h2>
-        </header>
-
-        {% for project in site.data.projects %}
-        <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
-          <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
-          <h3 class="resume-item-title" itemprop="name">{% if project.url %}<a href="{{ project.url }}" itemprop="url">{{ project.project }}</a>{% else %}{{ project.project }}{% endif %}</h3>
-          <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
-          <p class="resume-item-copy">{{ project.description }}</p>
-        </div>
-        {% endfor %}
-
-      </section>
-      <!-- end Projects -->
-      {% endif %}
 
       {% if site.resume_section_skills %}
       <!-- begin Skills -->
