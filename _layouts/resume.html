@@ -50,7 +50,7 @@
       <!-- begin Projects -->
       <section class="content-section">
         <header class="section-header">
-          <h2>Language Skils</h2>
+          <h2>Experiences</h2>
         </header>
 
         {% for project in site.data.projects %}
@@ -85,6 +85,26 @@
       </section>
       <!-- end Skills -->
       {% endif %}
+
+      {% if site.resume_section_experience %}
+      <!-- begin Skills -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Language Skills</h2>
+        </header>
+        {% for job in site.data.experience %}
+        <div class="resume-item" itemscope itemprop="worksFor" itemtype="https://gosafir.com/en/">
+          <h3 class="resume-item-title" itemprop="name">{{ job.company }}</h3>
+          <h4 class="resume-item-details" itemprop="description">{{ job.position }} &bull; {{ job.duration }}</h4>
+          <p class="resume-item-copy">{{ job.summary }}</p>
+        </div>
+        {% endfor %}
+      </section>
+      <!-- end Language Skills -->
+      {% endif %}
+
+
 
       {% if site.resume_section_education %}
       <!-- begin Education -->
