@@ -3,10 +3,14 @@
 
 # donutfinder.io
 
+- project: NexFon
+  role: Frontend developer
+  duration: Sep 2019 - &mdash; Present
+  url: "https://nexfon.ir/"
 
 - project: WoW Mobile Application at Kanoon Farhangi Amoozesh Qalamchi
   role: React-Native Developer
-  duration: Jan 2019 &mdash; Present
+  duration: Jan 2019 &mdash; Sep 2019
   url: "http://www.kanoon.ir/Common/Handler/ArticleDownload.ashx?id=234385&aid=33067"
   description: An free application for teaching English language to students in different grades and helping them to improve their writing skills.
   Used_Technologies: React Native, Redux
